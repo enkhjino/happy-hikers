@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override');
 
 //created .env module, so i have to require it here
 require('dotenv').config();
@@ -25,6 +26,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
+
+app.use(function (req, res, next) {
+  console.log('Its working!');
+  res.locals.time = new Date().toLocaleTimeString();
+  next();  // Pass the request to the next middleware
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
