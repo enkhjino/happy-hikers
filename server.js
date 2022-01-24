@@ -4,6 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//created .env module, so i have to require it here
+require('dotenv').config();
+//created config/database.js so we have to require it (already knows its js, so that part is not required)
+require('./config/database');
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
