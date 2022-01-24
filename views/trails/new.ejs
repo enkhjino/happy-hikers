@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+    <form id="new-form" action="/trails" method="POST">
+        <label>Location:</label>
+        <input type="text" name="location">
+        <label>Trail Name:</label>
+        <input type="text" name="trailName">
+        <label>Difficulty Level</label>
+        <select name="difficulty">
+            <option value="easy">easy</option>
+            <option value="moderate">moderate</option>
+            <option value="challenging">challenging</option>
+            <option value="difficult">difficult</option>
+            <option value="extreme">extreme</option>
+        </select>
+        <label>Distance</label>
+        <input type="text" name="distance">
+        <select name="difficulty">
+            <option value="kms">km</option>
+            <option value="miles">mile</option>
+        </select>
+        <label>Pets Allowed</label>
+        <input type="checkbox" name="petsAllowed" checked>
+        <input type="submit" value="Add Trail">
+    </form>
+
+    <%- include('../partials/footer') %>
