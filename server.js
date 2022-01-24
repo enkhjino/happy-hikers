@@ -3,17 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+var passport = require('passport');
 var methodOverride = require('method-override');
 
 //created .env module, so i have to require it here
 require('dotenv').config();
 //created config/database.js so we have to require it (already knows its js, so that part is not required)
 require('./config/database');
+//requiring so that we can use it elsewhere
+require('./config/passport');
 
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var trailsRouter = require('./routes/trails');
 
 var app = express();
 
@@ -25,17 +30,32 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 app.use(function (req, res, next) {
   console.log('Its working!');
-  res.locals.time = new Date().toLocaleTimeString();
   next();  // Pass the request to the next middleware
 });
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', trailsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
