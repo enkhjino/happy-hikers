@@ -25,3 +25,20 @@ main {
   justify-content: center;
   align-items: center;
 }
+#main-img {
+  z-index: -1;
+  position: absolute;
+  left:0px;
+  top:0px;
+  height: 100vh;
+  width: 100vw;
+  object-fit:cover;
+  /* filter: brightness(70%) hue-rotate(330deg); */
+}
+
+h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 60px;
+  letter-spacing: -0.5px;
+}
