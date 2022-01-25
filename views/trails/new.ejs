@@ -1,21 +1,25 @@
 <%- include('../partials/header') %>
 
+    <h3>Please fill out the following form to add a new hiking trail</h3>
+
     <form id="new-form" action="/trails" method="POST">
         <label>Location:</label>
-        <input type="text" name="location">
+        <input type="text" name="location" placeholder="City,State">
         <label>Trail Name:</label>
         <input type="text" name="trailName">
+        <label>Image:</label>
+        <input type="text" name="image" placeholder="URL">
         <label>Difficulty Level</label>
         <select name="difficulty">
-            <option value="easy">easy</option>
-            <option value="moderate">moderate</option>
-            <option value="challenging">challenging</option>
-            <option value="difficult">difficult</option>
-            <option value="extreme">extreme</option>
+            <option value="Easy">easy</option>
+            <option value="Moderate">moderate</option>
+            <option value="Challenging">challenging</option>
+            <option value="Difficult">difficult</option>
+            <option value="Extreme">extreme</option>
         </select>
         <label>Distance</label>
         <input type="text" name="distance">
-        <select name="difficulty">
+        <select name="unit">
             <option value="kms">km</option>
             <option value="miles">mile</option>
         </select>

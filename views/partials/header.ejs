@@ -11,16 +11,18 @@
 
 <body>
     <nav class="login">
-
+        <a href="/trails">HOME</a>
 
         <% if (user) { %>
-            <a href="/trails">HOME</a>
+
 
             <a href="/playlist" <%- title==='Playlist' ? 'class="active"' : '' %>>Playlist</a>
 
             <a href="/favorite" <%- title==='Favorite' ? 'class="active"' : '' %>>Favorite</a>
 
-            <a href="/profile" <%- title==='Profile' ? 'class="active"' : '' %>>User avatar</a>
+            <a href="/profile" <%- title==='Profile' ? 'class="active"' : '' %>>Avatar</a>
+
+            <a href="/trails/new" <%- title==='Add Trail' ? 'class="active"' : '' %>>Add a trail</a>
 
             <a href="/logout">Log Out</a>
 

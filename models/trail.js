@@ -27,14 +27,23 @@ const trailSchema = new Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        required: true
+    },
     difficulty: {
         type: String,
         enum: ['Easy', 'Moderate', 'Challenging', 'Difficult', 'Extreme']
     },
     distance: {
         type: Number,
-        enum: ['km', 'miles']
+        required: true
     },
+    unit: {
+        type: String,
+        enum: ['kms', 'miles']
+    },
+
     petAllowed: {
         type: Boolean,
         default: false

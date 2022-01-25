@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+    <h1>
+        H&H
+    </h1>
+    <a href="/playlist/new">Click here to share your favorite songs</a>
+    <table id="list">
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Song</th>
+            </tr>
+        </thead>
+        <table id="list">
+            <tbody>
+                <% songs.forEach(function(t) { %>
+                    <tr>
+                        <td>
+                            <%= t.artist %>
+                        </td>
+                        <td>
+                            <%= t.songName %>
+                        </td>
+
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+        <%- include('../partials/footer') %>
