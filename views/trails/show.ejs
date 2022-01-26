@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+    <h2>Hiking Trail Details</h2>
     <section id="show-page">
         <div>Location: </div>
         <div>
@@ -11,7 +11,7 @@
         </div>
         <div>Image: </div>
         <div>
-            <%= trail.image %>
+            <img src="<%= trail.image %>" alt="image">
         </div>
         <div>Difficulty: </div>
         <div>
@@ -28,8 +28,14 @@
         <div>
             <%= trail.petAllowed ? 'Yes' : 'No' %>
         </div>
+        <div>
+            Created by: <%= trail.user %>
+        </div>
+
     </section>
-    <!-- <form action="/trails/<%= trail.id %>?_method=DELETE" method=POST><button type="submit">Delete Trail</button></form> -->
+
+    <a href="/trails/<%= trail._id %>/edit">Edit</a>
+    <form action="/trails/<%= trail.id %>?_method=DELETE" method="POST"><button type="submit">Delete</button></form>
     </form>
 
     <br><br>
@@ -98,5 +104,6 @@
                 <% } else { %>
                     <h5>No Reviews Yet</h5>
                     <% } %>
+
 
                         <%- include('../partials/footer') %>

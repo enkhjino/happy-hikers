@@ -9,11 +9,15 @@
                     <td>
                         <%= t.trailName %>
                     </td>
+
                     <td>
                         <%= t.location %>
                     </td>
                     <td>
                         <img src="<%= t.image %>" alt="image">
+                    </td>
+                    <td>
+                        <%= t.user.name %>
                     </td>
                     <td><a href="/trails/<%= t._id %>">DETAILS</a></td>
                     <td><button>Favorite</button></td>

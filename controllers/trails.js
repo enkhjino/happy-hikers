@@ -4,9 +4,37 @@ module.exports = {
     index,
     new: newTrail,
     create,
-    show
+    show,
+    edit,
+    delete: deleteTrail,
+    update
 };
 
+function update(res, req) {
+    Trail.findOneAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }, function (err) {
+            res.redirect(`/trails/${book.id}`);
+        }
+    );
+}
+
+function deleteTrail(req, res) {
+    Trail.findOneAndDelete(
+        req.params.id, function (err) {
+            res.redirect('/trails');
+        }
+    );
+}
+
+
+function edit(req, res) {
+    Trail.findById(req.params.id, function (err, trail) {
+        if (err) return res.redirect('/trails');
+        res.render('trails/edit', { title: 'Edit trail', trail });
+    });
+}
 
 function show(req, res) {
     Trail.findById(req.params.id, function (err, trail) {
@@ -17,7 +45,7 @@ function show(req, res) {
 
 function create(req, res) {
     const trail = new Trail(req.body);
-    console.log(trail);
+    trail.user = req.user._id;
     trail.save(function (err) {
         if (err) return res.redirect('/trails/new');
         res.redirect(`/trails/`);
@@ -25,7 +53,7 @@ function create(req, res) {
 }
 
 function index(req, res) {
-    Trail.find({})
+    Trail.find({}).populate("user").exec()
         .then(function (trails) {
             res.render('trails/index', { title: 'All Trails', trails });
         })

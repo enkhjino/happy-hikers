@@ -19,6 +19,10 @@ const reviewSchema = new Schema({
 });
 
 const trailSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId, ref: "User",
+        required: true,
+    },
     location: {
         type: String,
         required: true
@@ -48,6 +52,7 @@ const trailSchema = new Schema({
         type: Boolean,
         default: false
     },
+    favoritedBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
     reviews: [reviewSchema]
 }, {
     timestamps: true
