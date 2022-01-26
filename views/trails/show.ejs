@@ -33,7 +33,7 @@
         </div>
 
     </section>
-    <% if (user===trail.user.name) { %>
+    <% if (user && user._id.equals(trail.user._id)) { %>
         <a href="/trails/<%= trail._id %>/edit">Edit</a>
         <form action="/trails/<%= trail._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button>
         </form>

@@ -39,9 +39,11 @@ function edit(req, res) {
 }
 
 function show(req, res) {
-    Trail.findById(req.params.id, function (err, trail) {
-        res.render('trails/show', { title: 'Trail Detail', trail });
-    })
+    Trail.findById(req.params.id)
+        .populate('user')
+        .exec(function (err, trail) {
+            res.render('trails/show', { title: 'Trail Detail', trail });
+        });
 }
 
 

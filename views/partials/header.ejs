@@ -17,7 +17,7 @@
         <% if (user) { %>
 
             <a href="/playlist" <%- title==='Playlist' ? 'class="active"' : '' %>>Playlist</a>
-            <a href="/favorite" <%- title==='Favorite' ? 'class="active"' : '' %>>Favorite</a>
+            <a href="/favorites" <%- title==='Favorite' ? 'class="active"' : '' %>>Favorites</a>
             <a href="/trails/new" <%- title==='Add Trail' ? 'class="active"' : '' %>>Add a trail</a>
             <a href="/logout">Log Out</a>
 
@@ -26,3 +26,6 @@
                 <% } %>
     </nav>
     <main>
+        <h1>
+            <%= title %>
+        </h1>

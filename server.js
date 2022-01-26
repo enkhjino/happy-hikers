@@ -20,6 +20,7 @@ var indexRouter = require('./routes/index');
 var trailsRouter = require('./routes/trails');
 var reviewsRouter = require('./routes/reviews');
 var songsRouter = require('./routes/songs');
+var favoritesRouter = require('./routes/favorites');
 
 var app = express();
 
@@ -58,6 +59,7 @@ app.use('/', indexRouter);
 app.use('/trails', trailsRouter);
 app.use('/', reviewsRouter);
 app.use('/playlist', songsRouter);
+app.use('/', favoritesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+
+    <p>Where is Your Next Adventure?</p>
+    <% trails.forEach(function(t){ %>
+        <section>
+            <h3>
+                <%= t.trailName %>
+            </h3>
+
+        </section>
+        <%})%>
+
+
+
+            <%- include('../partials/footer') %>
