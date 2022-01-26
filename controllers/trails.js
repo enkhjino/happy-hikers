@@ -10,17 +10,19 @@ module.exports = {
     update
 };
 
-function update(res, req) {
-    Trail.findOneAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }, function (err) {
-            res.redirect(`/trails/${book.id}`);
+function update(req, res) {
+    console.log(req.params.id);
+    Trail.findOneAndUpdate({ "trail._id": req.params.id }, req.body,
+        { new: true }, function (err, trail) {
+            trail.save();
+            if (err || !trail) return res.redirect('/trails');
+            res.redirect(`/trails/${trail.id}`);
         }
     );
 }
 
 function deleteTrail(req, res) {
+    console.log(req.params.id)
     Trail.findOneAndDelete(
         req.params.id, function (err) {
             res.redirect('/trails');

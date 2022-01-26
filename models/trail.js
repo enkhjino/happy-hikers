@@ -20,6 +20,7 @@ const reviewSchema = new Schema({
 
 const trailSchema = new Schema({
     user: {
+        name: String,
         type: Schema.Types.ObjectId, ref: "User",
         required: true,
     },

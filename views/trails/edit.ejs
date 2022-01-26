@@ -2,7 +2,7 @@
 
     <h3>Please fill out the following form to edit this hiking trail</h3>
 
-    <form id="new-form" action="/trails/<%= trail._id %>/edit" method="GET">
+    <form id="new-form" action="/trails/<%= trail._id %>?_method=PUT" method="POST">
         <label>Location:</label>
         <input type="text" name="location" value="<%= trail.location %>">
         <label>Trail Name:</label>

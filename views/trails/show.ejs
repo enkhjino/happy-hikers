@@ -29,13 +29,13 @@
             <%= trail.petAllowed ? 'Yes' : 'No' %>
         </div>
         <div>
-            Created by: <%= trail.user %>
+            Created by: <%= trail.user.name %>
         </div>
 
     </section>
 
     <a href="/trails/<%= trail._id %>/edit">Edit</a>
-    <form action="/trails/<%= trail.id %>?_method=DELETE" method="POST"><button type="submit">Delete</button></form>
+    <form action="/trails/<%= trail._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button></form>
     </form>
 
     <br><br>
