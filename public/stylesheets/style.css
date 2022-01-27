@@ -10,8 +10,15 @@ body {
   padding:0;
 }
 
-a {
-  color: #00B7FF;
+.login a {
+  color: white;
+  margin: 50px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.login a:hover {
+  color: grey;
+  padding: 2px;
 }
 
 .login {
@@ -19,13 +26,14 @@ a {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: end;
-  align-items: center;
-  /* height: 34px; */
+  height: 125px;
+  margin-right: 20px;
 }
 
 .login img {
   height: 30px;
 }
+
 main {
   display: flex;
   flex-direction:column;
@@ -44,30 +52,34 @@ main {
 }
 
 h1 {
-  color: black;
+  color: white;
   font-weight: 700;
   font-size: 60px;
   letter-spacing: -0.5px;
+  text-align: center;
 }
 section {
   background-image: url("https://i.imgur.com/mhgBPSp.jpg");
   margin:0;
   height: 500px;
+  background-size:cover;
+  justify-content: center;
 }
+
 .Favorites {
-  background-image: url("https://i.imgur.com/vGIv57s.jpg");
+  background-image: url("https://i.imgur.com/YpA2u5J.jpg");
 }
 
 .All {
-  background-image: url("https://i.imgur.com/qA5GhRB.png");
+  background-image: url("https://i.imgur.com/owCEwl6.jpg");
 }
 
 .Add {
-  background-image: url("https://i.imgur.com/DdcQ8L9.jpg");
+  background-image: url("https://i.imgur.com/zw56aOX.jpg");
 }
 .THE {
   background-image: none;
 }
 .Songs {
-  background-image: url("https://i.imgur.com/gQ6fXZq.jpg");
+  background-image: url("https://i.imgur.com/DycLO8h.jpg");
 }
