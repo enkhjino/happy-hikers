@@ -4,7 +4,7 @@
     <a href="/playlist/new">Click here to share your favorite songs</a>
     <table id="list">
         <thead>
-            <tr>
+            <tr id="song">
                 <th>Artist</th>
                 <th>Song</th>
             </tr>
@@ -21,7 +21,9 @@
                         </td>
 
                         <td>
-                            <%= t.songName %>
+                            <em>
+                                <%= t.songName %>
+                            </em>
                         </td>
 
                     </tr>

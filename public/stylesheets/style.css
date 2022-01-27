@@ -83,3 +83,13 @@ section {
 .Songs {
   background-image: url("https://i.imgur.com/DycLO8h.jpg");
 }
+#song th{
+  display: inline-block;
+  padding: 10px 50px;
+}
+
+#new-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
