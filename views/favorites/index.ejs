@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
 
-    <p>Start Your Next Adventure?</p>
+    <p>Choose your own hiking adventure</p>
     <% if(trails.length){%>
         <% trails.forEach(function(t){ %>
             <% if(t.favoritedBy.length) {%>
                 <% t.favoritedBy.forEach(function(f){%>
                     <% if (t.favoritedBy.length && user && user._id.equals(f)) { %>
-                        <section>
+                        <section id="show-page">
 
                             <div>Location: </div>
                             <div>
@@ -29,6 +29,7 @@
                             <div>
                                 <%= t.distance %>
                             </div>
+                            <div>Unit: </div>
                             <div>
                                 <%= t.unit %>
                             </div>

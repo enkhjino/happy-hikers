@@ -8,7 +8,7 @@ module.exports = {
 }
 function create(req, res) {
     Song.create(req.body, function (err, song) {
-        res.redirect('/songs/new');
+        res.redirect('playlist');
     });
 }
 

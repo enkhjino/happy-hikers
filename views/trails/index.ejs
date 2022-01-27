@@ -3,6 +3,7 @@
         <p>Where is Your Next Adventure?</p>
         <tbody>
             <% trails.forEach(function(t) { %>
+
                 <tr>
                     <td>
                         <%= t.trailName %>
@@ -22,7 +23,8 @@
                         <% if (user) { %>
                             <% if (!t.favoritedBy.some(f=> f.equals(user._id))) { %>
                                 <form action="/trails/<%= t._id %>/favorites" method="POST">
-                                    <button type="submit">Favorite</button>
+                                    <button id="favorite" type="submit"><img
+                                            src="https://i.imgur.com/XCMSPty.png"></button>
                                 </form>
                                 <% } %>
                                     <% } %>
