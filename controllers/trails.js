@@ -11,7 +11,6 @@ module.exports = {
 };
 
 function update(req, res) {
-    console.log(req.params.id);
     Trail.findOneAndUpdate({ "trail._id": req.params.id }, req.body,
         { new: true }, function (err, trail) {
             trail.save();
@@ -22,7 +21,6 @@ function update(req, res) {
 }
 
 function deleteTrail(req, res) {
-    console.log(req.params.id)
     Trail.findOneAndDelete(
         req.params.id, function (err) {
             res.redirect('/trails');

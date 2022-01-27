@@ -5,10 +5,15 @@ module.exports = {
     create
 }
 function index(req, res) {
-    Trail.find({ favoritedBy: req.user._id }, function (err, trails) {
-        res.render('favorites/index', { title: "Favorites", trails });
-    });
+    Trail.find({}).populate("user").exec()
+        .then(function (trails) {
+            res.render('favorites/index', { title: "Favorites", trails });
+        })
+        .catch(function (err) {
+            res.redirect('/trails');
+        });
 }
+
 
 function create(req, res) {
     Trail.findOne({ _id: req.params.id, favoritedBy: { $nin: req.user._id } }, function (err, trail) {

@@ -1,16 +1,53 @@
 <%- include('../partials/header') %>
 
 
-    <p>Where is Your Next Adventure?</p>
-    <% trails.forEach(function(t){ %>
-        <section>
-            <h3>
-                <%= t.trailName %>
-            </h3>
+    <p>Start Your Next Adventure?</p>
+    <% var empty=false %>
+        <% trails.forEach(function(t){ %>
+            <% t.favoritedBy.forEach(function(f){%>
+                <% if (t.favoritedBy.length && user && user._id.equals(f)) { %>
+                    <section>
 
-        </section>
-        <%})%>
+                        <div>Location: </div>
+                        <div>
+                            <%= t.location %>
+                        </div>
+                        <div>Trail Name: </div>
+                        <div>
+                            <%= t.trailName %>
+                        </div>
+                        <div>Image: </div>
+                        <div>
+                            <img src="<%= t.image %>" alt="image">
+                        </div>
+                        <div>Difficulty: </div>
+                        <div>
+                            <%= t.difficulty %>
+                        </div>
+                        <div>Distance: </div>
+                        <div>
+                            <%= t.distance %>
+                        </div>
+                        <div>
+                            <%= t.unit %>
+                        </div>
+                        <div>Pets Allowed: </div>
+                        <div>
+                            <%= t.petAllowed ? 'Yes' : 'No' %>
+                        </div>
+                        <div>
+                            Created by: <%= t.user.name %>
+                        </div>
+
+                    </section>
+                    <% } else { %>
+                        <% empty=true %>
+                            <% } %>
+                                <%})%>
+                                    <%})%>
+                                        <% if(empty===true) { %>
+                                            <h2>No Favorites Yet</h2>
+                                            <% } %>
 
 
-
-            <%- include('../partials/footer') %>
+                                                <%- include('../partials/footer') %>
