@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: '' });
+  res.render('index', { title: 'THE HAPPY HIKERS CLUB' });
 });
 
 // Google OAuth login route

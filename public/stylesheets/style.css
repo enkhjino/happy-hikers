@@ -1,6 +1,13 @@
+html {
+  margin:0;
+  padding:0;
+}
 body {
+  height: 100%;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin:0;
+  padding:0;
 }
 
 a {
@@ -41,4 +48,26 @@ h1 {
   font-weight: 700;
   font-size: 60px;
   letter-spacing: -0.5px;
+}
+section {
+  background-image: url("https://i.imgur.com/mhgBPSp.jpg");
+  margin:0;
+  height: 500px;
+}
+.Favorites {
+  background-image: url("https://i.imgur.com/vGIv57s.jpg");
+}
+
+.All {
+  background-image: url("https://i.imgur.com/qA5GhRB.png");
+}
+
+.Add {
+  background-image: url("https://i.imgur.com/DdcQ8L9.jpg");
+}
+.THE {
+  background-image: none;
+}
+.Songs {
+  background-image: url("https://i.imgur.com/gQ6fXZq.jpg");
 }

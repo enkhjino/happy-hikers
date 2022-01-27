@@ -2,52 +2,54 @@
 
 
     <p>Start Your Next Adventure?</p>
-    <% var empty=false %>
+    <% if(trails.length){%>
         <% trails.forEach(function(t){ %>
-            <% t.favoritedBy.forEach(function(f){%>
-                <% if (t.favoritedBy.length && user && user._id.equals(f)) { %>
-                    <section>
+            <% if(t.favoritedBy.length) {%>
+                <% t.favoritedBy.forEach(function(f){%>
+                    <% if (t.favoritedBy.length && user && user._id.equals(f)) { %>
+                        <section>
 
-                        <div>Location: </div>
-                        <div>
-                            <%= t.location %>
-                        </div>
-                        <div>Trail Name: </div>
-                        <div>
-                            <%= t.trailName %>
-                        </div>
-                        <div>Image: </div>
-                        <div>
-                            <img src="<%= t.image %>" alt="image">
-                        </div>
-                        <div>Difficulty: </div>
-                        <div>
-                            <%= t.difficulty %>
-                        </div>
-                        <div>Distance: </div>
-                        <div>
-                            <%= t.distance %>
-                        </div>
-                        <div>
-                            <%= t.unit %>
-                        </div>
-                        <div>Pets Allowed: </div>
-                        <div>
-                            <%= t.petAllowed ? 'Yes' : 'No' %>
-                        </div>
-                        <div>
-                            Created by: <%= t.user.name %>
-                        </div>
+                            <div>Location: </div>
+                            <div>
+                                <%= t.location %>
+                            </div>
+                            <div>Trail Name: </div>
+                            <div>
+                                <%= t.trailName %>
+                            </div>
+                            <div>Image: </div>
+                            <div>
+                                <img src="<%= t.image %>" alt="image">
+                            </div>
+                            <div>Difficulty: </div>
+                            <div>
+                                <%= t.difficulty %>
+                            </div>
+                            <div>Distance: </div>
+                            <div>
+                                <%= t.distance %>
+                            </div>
+                            <div>
+                                <%= t.unit %>
+                            </div>
+                            <div>Pets Allowed: </div>
+                            <div>
+                                <%= t.petAllowed ? 'Yes' : 'No' %>
+                            </div>
+                            <div>
+                                Created by: <%= t.user.name %>
+                            </div>
 
-                    </section>
-                    <% } else { %>
-                        <% empty=true %>
+                        </section>
+                        <% } else { %>
+
                             <% } %>
                                 <%})%>
-                                    <%})%>
-                                        <% if(empty===true) { %>
-                                            <h2>No Favorites Yet</h2>
-                                            <% } %>
-
-
-                                                <%- include('../partials/footer') %>
+                                    <% }else { %>
+                                        <h2>No Favorites Yet</h2>
+                                        <% } %>
+                                            <%})%>
+                                                <% }else{ %>
+                                                    <h2>No Favorites Yet</h2>
+                                                    <% } %>
+                                                        <%- include('../partials/footer') %>

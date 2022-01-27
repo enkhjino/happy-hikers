@@ -19,11 +19,13 @@
                     </td>
                     <td><a href="/trails/<%= t._id %>">DETAILS</a></td>
                     <td>
-                        <% if (!t.favoritedBy.some(f=> f.equals(user._id))) { %>
-                            <form action="/trails/<%= t._id %>/favorites" method="POST">
-                                <button type="submit">Favorite</button>
-                            </form>
-                            <% } %>
+                        <% if (user) { %>
+                            <% if (!t.favoritedBy.some(f=> f.equals(user._id))) { %>
+                                <form action="/trails/<%= t._id %>/favorites" method="POST">
+                                    <button type="submit">Favorite</button>
+                                </form>
+                                <% } %>
+                                    <% } %>
                     </td>
                 </tr>
                 <% }); %>
