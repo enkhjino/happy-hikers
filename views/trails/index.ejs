@@ -1,37 +1,38 @@
 <%- include('../partials/header') %>
-    <table id="list">
-        <p>Where is Your Next Adventure?</p>
-        <tbody>
-            <% trails.forEach(function(t) { %>
+<table>
+    <h2>All Trails</h2>
+    <tbody>
+        <% trails.forEach(function(t) { %>
 
-                <tr>
-                    <td>
-                        <%= t.trailName %>
-                    </td>
+        <tr id="list">
+            <td id="top">
+                <strong>
+                    <%= t.trailName %>
+                </strong>
+            </td>
 
-                    <td>
-                        <%= t.location %>
-                    </td>
-                    <td>
-                        <img src="<%= t.image %>" alt="image">
-                    </td>
-                    <td>
-                        Created By: <%= t.user.name %>
-                    </td>
-                    <td><a href="/trails/<%= t._id %>">DETAILS</a></td>
-                    <td>
-                        <% if (user) { %>
-                            <% if (!t.favoritedBy.some(f=> f.equals(user._id))) { %>
-                                <form action="/trails/<%= t._id %>/favorites" method="POST">
-                                    <button id="favorite" type="submit"><img
-                                            src="https://i.imgur.com/XCMSPty.png"></button>
-                                </form>
-                                <% } %>
-                                    <% } %>
-                    </td>
-                </tr>
-                <% }); %>
-        </tbody>
-    </table>
+            <td>
+                <%= t.location %>
+            </td>
+            <td>
+                <img src="<%= t.image %>" width="500px" height="350px" alt="image">
+            </td>
+            <td>
+                Created By: <%= t.user.name %>
+            </td>
+            <td><a href="/trails/<%= t._id %>">DETAILS</a></td>
+            <td>
+                <% if (user) { %>
+                <% if (!t.favoritedBy.some(f=> f.equals(user._id))) { %>
+                <form action="/trails/<%= t._id %>/favorites" method="POST">
+                    <button id="favorite" type="submit"><img src="https://i.imgur.com/XCMSPty.png"></button>
+                </form>
+                <% } %>
+                <% } %>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
 
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

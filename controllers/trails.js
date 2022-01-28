@@ -40,7 +40,7 @@ function show(req, res) {
     Trail.findById(req.params.id)
         .populate('user')
         .exec(function (err, trail) {
-            res.render('trails/show', { title: 'Trail Detail', trail });
+            res.render('trails/show', { title: 'NEVER STOP EXPLORING', trail });
         });
 }
 
@@ -57,7 +57,7 @@ function create(req, res) {
 function index(req, res) {
     Trail.find({}).populate("user").exec()
         .then(function (trails) {
-            res.render('trails/index', { title: 'All Trails', trails });
+            res.render('trails/index', { title: 'WHERE IS YOUR NEXT ADVENTURE?', trails });
         })
         .catch(function (err) {
             res.redirect('/trails');
@@ -65,5 +65,5 @@ function index(req, res) {
 }
 
 function newTrail(req, res) {
-    res.render('trails/new', { title: 'Add new trail', validDifficulty: Trail.schema.path('difficulty').enumValues, validDistance: Trail.schema.path('unit').enumValues })
+    res.render('trails/new', { title: 'SHARE YOUR FAVORITE HIKING TRAILS', validDifficulty: Trail.schema.path('difficulty').enumValues, validDistance: Trail.schema.path('unit').enumValues })
 }

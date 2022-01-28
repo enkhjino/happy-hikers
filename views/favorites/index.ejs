@@ -1,56 +1,58 @@
 <%- include('../partials/header') %>
 
 
-    <p>Choose your own hiking adventure</p>
-    <% if(trails.length){%>
-        <% trails.forEach(function(t){ %>
-            <% if(t.favoritedBy.length) {%>
-                <% t.favoritedBy.forEach(function(f){%>
-                    <% if (t.favoritedBy.length && user && user._id.equals(f)) { %>
-                        <section id="show-page">
+<h2>Favorites</h2>
+<% if(trails.length){%>
+<% trails.forEach(function(t){ %>
+<% if(t.favoritedBy.length) {%>
+<% t.favoritedBy.forEach(function(f){%>
+<% if (t.favoritedBy.length && user && user._id.equals(f)) { %>
+<section id="favoritesPage">
 
-                            <div>Location: </div>
-                            <div>
-                                <%= t.location %>
-                            </div>
-                            <div>Trail Name: </div>
-                            <div>
-                                <%= t.trailName %>
-                            </div>
-                            <div>Image: </div>
-                            <div>
-                                <img src="<%= t.image %>" alt="image">
-                            </div>
-                            <div>Difficulty: </div>
-                            <div>
-                                <%= t.difficulty %>
-                            </div>
-                            <div>Distance: </div>
-                            <div>
-                                <%= t.distance %>
-                            </div>
-                            <div>Unit: </div>
-                            <div>
-                                <%= t.unit %>
-                            </div>
-                            <div>Pets Allowed: </div>
-                            <div>
-                                <%= t.petAllowed ? 'Yes' : 'No' %>
-                            </div>
-                            <div>
-                                Created by: <%= t.user.name %>
-                            </div>
+    <div>Location: </div>
+    <div>
+        <%= t.location %>
+    </div>
+    <div>Trail Name: </div>
+    <div>
+        <%= t.trailName %>
+    </div>
+    <div>Image: </div>
+    <div>
+        <img width="300px" height="300px" src="<%= t.image %>" alt="image">
+    </div>
+    <div>Difficulty: </div>
+    <div>
+        <%= t.difficulty %>
+    </div>
+    <div>Distance: </div>
+    <div>
+        <%= t.distance %>
+    </div>
+    <div>Unit: </div>
+    <div>
+        <%= t.unit %>
+    </div>
+    <div>Pets Allowed: </div>
+    <div>
+        <%= t.petAllowed ? 'Yes' : 'No' %>
+    </div>
+    <div>Created by: </div>
+    <div>
+        <%= t.user.name %>
+    </div>
 
-                        </section>
-                        <% } else { %>
+</section>
+<hr id="hr-one">
+<% } else { %>
+<% } %>
+<%})%>
+<% }else { %>
+<h2>No Favorites Yet</h2>
+<% } %>
+<%})%>
+<% }else{ %>
+<h2>No Favorites Yet</h2>
+<% } %>
 
-                            <% } %>
-                                <%})%>
-                                    <% }else { %>
-                                        <h2>No Favorites Yet</h2>
-                                        <% } %>
-                                            <%})%>
-                                                <% }else{ %>
-                                                    <h2>No Favorites Yet</h2>
-                                                    <% } %>
-                                                        <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

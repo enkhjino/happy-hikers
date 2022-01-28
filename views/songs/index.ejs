@@ -1,15 +1,15 @@
 <%- include('../partials/header') %>
 
-    <p>Recommended songs for your hiking playlist</p>
+    <h2>All Songs</h2>
     <a href="/playlist/new">Click here to share your favorite songs</a>
-    <table id="list">
+    <table>
         <thead>
             <tr id="song">
                 <th>Artist</th>
                 <th>Song</th>
             </tr>
         </thead>
-        <table id="list">
+        <table>
             <tbody>
                 <% songs.forEach(function(t) { %>
                     <tr>

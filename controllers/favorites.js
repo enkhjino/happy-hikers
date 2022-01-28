@@ -7,7 +7,7 @@ module.exports = {
 function index(req, res) {
     Trail.find({}).populate("user").exec()
         .then(function (trails) {
-            res.render('favorites/index', { title: "Favorites", trails });
+            res.render('favorites/index', { title: "CHOOSE YOUR OWN ADVENTURE", trails });
         })
         .catch(function (err) {
             res.redirect('/trails');
