@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
-    <h3>Please fill out the following form to add a new song</h3>
-    <!-- new-form -->
-    <form id="new-song" action="/playlist" method="POST">
-        <label>Artist:</label>
-        <input type="text" name="artist" placeholder="ex: Bob Marley">
-        <label>Song:</label>
-        <input type="text" name="songName" placeholder="ex: Dont Worry be Happy">
-        <input id="add-song" type="submit" value="Add Song">
-    </form>
+<h3>Please fill out the following form to add a new song</h3>
+<!-- new-form -->
+<form id="new-song" action="/playlist" method="POST">
+    <label>Artist:</label>
+    <input type="text" name="artist" placeholder="ex: Bobby McFerrin">
+    <label>Song:</label>
+    <input type="text" name="songName" placeholder="ex: Dont Worry be Happy">
+    <input id="add-song" type="submit" value="Add Song">
+</form>
 
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>
